@@ -20,6 +20,13 @@ public class PlayerController : MonoBehaviour
         float horizontalAxis = Input.GetAxis("Horizontal");
         //rigidbody.velocity = new Vector2(-horizontalAxis * speed, 0);
         rigidbody.AddForce(new Vector2(-horizontalAxis * speed, 0),ForceMode2D.Force);
+    }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Asteroid")
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }
