@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AsteroidDeath : MonoBehaviour
+public class DestroyZones : MonoBehaviour
 {
-
     void OnTriggerEnter2D(Collider2D col)
     {
         Destroy(col.gameObject);
     }
-
 }
