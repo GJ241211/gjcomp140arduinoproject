@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rigidbody;
     [SerializeField]
-    float speed = 10f * Time.deltaTime;
+    float speed = 10f;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
         float horizontalAxis = Input.GetAxis("Horizontal");
         //rigidbody.velocity = new Vector2(-horizontalAxis * speed, 0);
         //rigidbody.AddForce(new Vector2(-horizontalAxis * speed, 0),ForceMode2D.Force);
-        transform.position += Vector3.left * Input.GetAxis("Horizontal") * speed;
+        transform.position += Vector3.left * Input.GetAxis("Horizontal") * speed * Time.deltaTime;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
             Destroy(collision.gameObject);
             transform.eulerAngles += Vector3.forward * rotateAmmount;
             transform.eulerAngles += Vector3.forward * -rotateAmmount;
+            //Invoke()
         }
     }
 }

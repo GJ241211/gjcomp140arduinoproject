@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Asteroid
+  - Barrier
+  - Gate
+  - StarGate
   layers:
   - Default
   - TransparentFX
@@ -14,12 +17,12 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - StarGate
+  - Player
+  - Asteroid
+  - Bullets
+  - DeletionZone
+  - boarder
   - 
   - 
   - 
@@ -44,6 +47,9 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 307607817
+    locked: 0
+  - name: Stargate
+    uniqueID: 2651975985
     locked: 0
   - name: Foreground
     uniqueID: 1738742039

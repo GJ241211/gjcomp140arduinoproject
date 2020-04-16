@@ -19,8 +19,21 @@ public class FireBullet : MonoBehaviour
             if (Input.GetKeyDown("space"))
             {
                 ShootBullet();
-                shots -= 1;
+                shots --;
             }
+        }
+    }
+
+    private void Start()
+    {
+        InvokeRepeating("RegenerateBullet", 0.0f, 3f);
+    }
+
+    void RegenerateBullet()
+    {
+        if (shots < 5)
+        {
+            shots++;
         }
     }
 

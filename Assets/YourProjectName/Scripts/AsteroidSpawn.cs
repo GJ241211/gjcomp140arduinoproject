@@ -12,8 +12,7 @@ public class AsteroidSpawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnAsteroid", 0.0f, 1.2f);
-        
+        InvokeRepeating("SpawnAsteroid", 0.0f, 1.2f);        
     }
 
     void SpawnAsteroid()

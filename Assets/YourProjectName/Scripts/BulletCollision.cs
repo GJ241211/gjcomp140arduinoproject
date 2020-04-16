@@ -12,6 +12,20 @@ public class BulletCollision : MonoBehaviour
             Destroy(gameObject);
             
         }
+
+        if (collision.gameObject.tag == "Gate")
+        {
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+
+        }
+
+        if (collision.gameObject.tag == "Barrier")
+        {
+            
+            Destroy(gameObject);
+
+        }
     }
 
 }
