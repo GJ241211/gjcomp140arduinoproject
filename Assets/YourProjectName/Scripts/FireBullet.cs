@@ -10,6 +10,8 @@ public class FireBullet : MonoBehaviour
     GameObject BulletSpawnpoint;
     [SerializeField]
     int shots = 5;
+    [SerializeField]
+    GameManager gameManager;
 
     // Would this be part of player controller?
     void Update()
@@ -20,8 +22,11 @@ public class FireBullet : MonoBehaviour
             {
                 ShootBullet();
                 shots --;
+                
             }
         }
+        gameManager.ToggleLight(shots);
+        //Debug.Log("current shot" + shots);
     }
 
     private void Start()
@@ -34,6 +39,8 @@ public class FireBullet : MonoBehaviour
         if (shots < 5)
         {
             shots++;
+            //gameManager.ToggleLight(shots);
+            //Debug.Log("current shot" + shots);
         }
     }
 

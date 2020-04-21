@@ -393,6 +393,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1498285342}
+  ShotLights:
+  - {fileID: 1783301734}
+  - {fileID: 909511923}
+  - {fileID: 1540627967}
+  - {fileID: 1284962691}
+  - {fileID: 749166807}
 --- !u!4 &238762096
 Transform:
   m_ObjectHideFlags: 0
