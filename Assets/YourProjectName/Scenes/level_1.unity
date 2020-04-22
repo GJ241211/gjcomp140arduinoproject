@@ -363,6 +363,7 @@ MonoBehaviour:
     type: 3}
   BulletSpawnpoint: {fileID: 626678481}
   shots: 5
+  gameManager: {fileID: 238762095}
 --- !u!1 &238762094
 GameObject:
   m_ObjectHideFlags: 0
@@ -1227,7 +1228,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1251102365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1659,7 +1660,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1547956009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2235,7 +2236,7 @@ PrefabInstance:
     - target: {fileID: 2396430331336202376, guid: 9accb82c468e8f44d866bef71327e8a5,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2396430331336202423, guid: 9accb82c468e8f44d866bef71327e8a5,
         type: 3}
