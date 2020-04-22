@@ -32,21 +32,20 @@ public class GameManager : MonoBehaviour
 
     public void ToggleLight(int lightIndex)
     {
-        if(lightIndex < ShotLights.Length)
+        //We need to remap this into the range of the array (i.e. 0 - 4)
+        lightIndex--;
+        if (lightIndex < ShotLights.Length)
         {
-            for (int i = 0; i < lightIndex; i++)
+            Color lightColor = ShotLights[lightIndex].color;
+            if (lightColor.a < 1.0f)
             {
-                Color lightColor = ShotLights[i].color;
-                if (lightColor.a == 0.0f)
-                {
-                    lightColor.a = 1.0f;
-                }
-                else
-                {
-                    lightColor.a = 0.0f;
-                }
-                ShotLights[i].color = lightColor;
+                lightColor.a = 1.0f;
             }
+            else
+            {
+                lightColor.a = 0.0f;
+            }
+            ShotLights[lightIndex].color = lightColor;
         }
     }
 }

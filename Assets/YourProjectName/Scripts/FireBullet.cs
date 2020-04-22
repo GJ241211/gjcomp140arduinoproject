@@ -16,17 +16,18 @@ public class FireBullet : MonoBehaviour
     // Would this be part of player controller?
     void Update()
     {
+
         if (shots > 0)
         {
             if (Input.GetKeyDown("space"))
             {
+                //Turn of the light before moving the shot counter down!
+                gameManager.ToggleLight(shots);
                 ShootBullet();
-                shots --;
-                
+                shots--;
+                Debug.Log("current shot" + shots);
             }
         }
-        gameManager.ToggleLight(shots);
-        //Debug.Log("current shot" + shots);
     }
 
     private void Start()
@@ -39,8 +40,7 @@ public class FireBullet : MonoBehaviour
         if (shots < 5)
         {
             shots++;
-            //gameManager.ToggleLight(shots);
-            //Debug.Log("current shot" + shots);
+            gameManager.ToggleLight(shots);
         }
     }
 
