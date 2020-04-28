@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     Image[] ShotLights;
     
-    // Update is called once per frame
+    // calculates and displays score
     void Update()
     {
         score = Time.timeSinceLevelLoad * 5;
@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
         return score;
     }
 
+    //Wends score to game over screen
     public void OnPlayerDeath()
     {
         PlayerPrefs.SetFloat("score", GetScore());
@@ -32,7 +33,7 @@ public class GameManager : MonoBehaviour
 
     public void ToggleLight(int lightIndex)
     {
-        //We need to remap this into the range of the array (i.e. 0 - 4)
+        //changes lights (ingame hud objects) visability/ Linked to fire bullet to get shots count 
         lightIndex--;
         if (lightIndex < ShotLights.Length)
         {

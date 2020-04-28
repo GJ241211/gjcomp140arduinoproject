@@ -8,7 +8,7 @@ public class StargateSpawner : MonoBehaviour
     [SerializeField]
     GameObject StargatePrefab;
 
-    // Start is called before the first frame update
+    // regularly spawn gates at an interval.
     void Start()
     {
         InvokeRepeating("SpawnStargate", 15f, 20f);

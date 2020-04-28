@@ -43,20 +43,19 @@ public class Arduino : MonoBehaviour
 
         if (controllerActive)
             {
-                WriteToArduino("Z");                // Ask for the positions
+                WriteToArduino("Z");                // Ask for the rotation
                 String value = ReadFromArduino(50); // read the positions
 
-                if (value != null)                  // check to see if we got what we need
-                {
-                    // EXPECTED VALUE FORMAT: "0-1023"
-                    string[] values = value.Split(',');     // split the values
+                if (value != null)                  // check that there is an input
+                {                    
+                    string[] values = value.Split(',');     // split the values so unity can read them indipendently.
 
                     if (values.Length == 2)
                     {
                         try
                         {                            
-                            pc.updateMovement(float.Parse(values[0]));
-                            if (int.Parse(values[1]) == 0)
+                            pc.updateMovement(float.Parse(values[0])); //movement value
+                            if (int.Parse(values[1]) == 0)             //shot value (1/0)
                         {
                             fb.controllerFire();
                         }
@@ -95,7 +94,7 @@ public class Arduino : MonoBehaviour
         }
     }
 
-    // be sure to close the serial when the game ends.
+    //  closes the serial 
     void OnDestroy()
     {
         Debug.Log("Exiting");

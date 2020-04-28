@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     float VerticalVelocity = 240;
 
-    // Start is called before the first frame update
+    // tells bullet to move
     void Start()
     {
 

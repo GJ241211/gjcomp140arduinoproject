@@ -16,13 +16,13 @@ public class FireBullet : MonoBehaviour
     bool controllerBtn = false;
     bool fireEnabled = true;
 
-    // Would this be part of player controller?
+    
     void Update()
     {
 
-        if (shots > 0 && fireEnabled == true)
+        if (shots > 0 && fireEnabled == true) //checks if you can currently fire
         {
-            if (Input.GetKeyDown("space") || controllerBtn == true)
+            if (Input.GetKeyDown("space") || controllerBtn == true) // checks if inputs are calling to fire
             {
                 //Turn of the light before moving the shot counter down!
                 gameManager.ToggleLight(shots);
@@ -32,7 +32,7 @@ public class FireBullet : MonoBehaviour
                 controllerBtn = false;
 
                 fireEnabled = false;
-                StartCoroutine(ExampleCoroutine());
+                StartCoroutine(ExampleCoroutine()); //starts fire cooldown
                 
             }
         }
@@ -57,15 +57,17 @@ public class FireBullet : MonoBehaviour
         GameObject bullet = Instantiate<GameObject>(BulletPrefab, BulletSpawnpoint.transform.position, Quaternion.identity);
         
     }
+
+    //identifies if vontroller button is pressed.
     public void controllerFire()
     {
         controllerBtn = true;
     }
 
 
-    IEnumerator ExampleCoroutine()
+    IEnumerator ExampleCoroutine() //starts a cooldown between shots to prevent players shooting all there shots with 1 press on the controller
     {       
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.6f);
         fireEnabled = true;
     }
 }

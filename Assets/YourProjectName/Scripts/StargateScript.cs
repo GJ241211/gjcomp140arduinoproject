@@ -9,7 +9,7 @@ public class StargateScript : MonoBehaviour
     [SerializeField]
     GameObject Gate;
 
-    // Start is called before the first frame update
+    
     void Start()
     {
         spawnStargate();
@@ -24,6 +24,8 @@ public class StargateScript : MonoBehaviour
         float verticalVelocity = (-80);
         SarGateRB.velocity = new Vector2(horizontalVelocity, verticalVelocity);
 
+
+        // picks two sections out of six to spawn in gates (makes sure dupes get run again.)
         int Gate1Index = Random.Range(0, 5);
         int Gate2Index = Random.Range(0, 5);
         while (Gate1Index == Gate2Index)
@@ -34,6 +36,8 @@ public class StargateScript : MonoBehaviour
             }
         }
 
+
+        // spawns barriers and gates in their positions relative to randomly assigned gate 
         Vector3 startPos = transform.position;
         for (int i = 0; i < 6; i++)
         {
@@ -50,6 +54,8 @@ public class StargateScript : MonoBehaviour
 
     }
 
+
+    // called by bullets on collision.
     public void destroyStargate()
     {
         Destroy(gameObject);
