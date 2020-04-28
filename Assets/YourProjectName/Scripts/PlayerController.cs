@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
         //get controller reference x,y,z (to calibrate gyro)        
     }
 
-    private void getStartPos(float Z)
+    public void getStartPos(float Z)
     {
         startPos = Z;
     }

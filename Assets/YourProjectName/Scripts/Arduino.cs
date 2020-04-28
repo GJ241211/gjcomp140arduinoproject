@@ -15,7 +15,7 @@ public class Arduino : MonoBehaviour
     private SerialPort serial = null;
     private bool connected = true;
 
-    private bool configured = false;
+    private bool configured = false;    
 
     // Use this for initialization
     void Start()
@@ -37,9 +37,11 @@ public class Arduino : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (configured == true)
-        {
-            if (controllerActive)
+        PlayerController pc = player.GetComponent<PlayerController>();
+        FireBullet fb = player.GetComponent<FireBullet>();
+
+
+        if (controllerActive)
             {
                 WriteToArduino("Z");                // Ask for the positions
                 String value = ReadFromArduino(50); // read the positions
@@ -49,12 +51,16 @@ public class Arduino : MonoBehaviour
                     // EXPECTED VALUE FORMAT: "0-1023"
                     string[] values = value.Split(',');     // split the values
 
-                    if (values.Length == 1)
+                    if (values.Length == 2)
                     {
                         try
-                        {
-                            PlayerController pc = player.GetComponent<PlayerController>();
+                        {                            
                             pc.updateMovement(float.Parse(values[0]));
+                            if (int.Parse(values[1]) == 0)
+                        {
+                            fb.controllerFire();
+                        }
+
                         }
                         catch (FormatException error)
                         {
@@ -62,38 +68,10 @@ public class Arduino : MonoBehaviour
                         }
                     }
                 }
-            }
-        }
-        else
-        {
-            /////
             
-            WriteToArduino("Z");                // Ask for the positions
-            String value = ReadFromArduino(50); // read the positions
-
-            if (value != null)                  // check to see if we got what we need
-            {
-                // EXPECTED VALUE FORMAT: "0-1023"
-                string[] values = value.Split(',');     // split the values
-
-                if (values.Length == 1)
-                {
-                    try
-                    {
-                        PlayerController pc = player.GetComponent<PlayerController>();
-                        pc.updateMovement(float.Parse(values[0]));
-                        configured = true;
-                    }
-                    catch (FormatException error)
-                    {
-                        Debug.Log("Start Up");
-                    }
-                }
-            }
-
-
-            /////            
         }
+            
+        
     }
 
  
